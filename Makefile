@@ -1,5 +1,5 @@
 CC := gcc
-CFLAGS := -Wall -Wshadow -pedantic -ansi -std=c99 -O3
+CFLAGS := -Wall -Wshadow -pedantic -ansi -std=c99 -g
 SRCS := $(wildcard *.c)
 OBJS := $(SRCS:.c=.o)
 

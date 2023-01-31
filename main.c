@@ -1,21 +1,22 @@
 #include <stdio.h>
 
-#include "stack.h"
+#include "queue.h"
 
 int main (void) {
-	Stack *S;
+	Queue *Q;
+
+	queue_new(&Q, sizeof(int));
+
+	size_t i;
 	int x;
+	for(i = x = 0, x = i; i < 10; ++i, x = i)
+		queue_enqueue(Q, &x);
 
-	stack_new(&S, sizeof(int));
-
-	for(size_t i = 0; i < 100; ++i)
-		stack_push(S, &i);
-
-	while(S->len) {
-		stack_pop(S, &x);
-		printf("%5d%s", x, S->len % 10 ? " " : "\n");
+	while(queue_is_empty(Q)) {
+		queue_dequeue(Q, &x);
+		printf("%5d\n", (int)x);
 	}
 
-	stack_destroy(S);
+	queue_destroy(Q);
 	return 0;
 }
